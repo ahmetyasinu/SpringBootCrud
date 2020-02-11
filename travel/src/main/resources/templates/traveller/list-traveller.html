@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Traveller Director</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Traveller Directory</h3>
+    <hr>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Destination</th>
+            <th>Purpose</th>
+            <th>Project Code</th>
+            <th>Cost</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>User Name</th>
+            <th>Operations</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempTraveller :${traveller}">
+            <td th:text="${tempTraveller.destination}"/>
+            <td th:text="${tempTraveller.purpose}"/>
+            <td th:text="${tempTraveller.projectCode}"/>
+            <td th:text="${tempTraveller.cost}"/>
+            <td th:text="${tempTraveller.startDate}"/>
+            <td th:text="${tempTraveller.endDate}"/>
+            <td th:text="${tempTraveller.userName}"/>
+            <!-- //add a update button-->
+            <td><a th:href="@{/traveller/showFormForUpdate(id=${tempTraveller.id})}"
+                   class="btn btn-info btn-sm">
+                Update
+            </a>
+                <!-- //Add delete button link-->
+                <a th:href="@{/traveller/delete(id=${tempTraveller.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="if(!(confirm('Are you sure you want to delete this employee'))) return false">
+                    Delete
+                </a></td>
+
+
+        </tr>
+        </tbody>
+    </table>
+    <!--add a button-->
+    <a th:href="@{/traveller/showFormForAdd}"
+       class="btn btn-primary btn-sm mb-3">
+        Add Traveller
+    </a>
+
+    <a th:href="@{/traveller/goFilterPage}"
+       class="btn btn-primary btn-sm mb-3">
+        Filtrelemek için Tıkla
+    </a>
+
+</div>
+
+</body>
+</html>

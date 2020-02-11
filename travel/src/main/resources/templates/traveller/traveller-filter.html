@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div class="container">
+    <h3>Filtrelemek İstediğiniz tarihleri seçiniz</h3>
+    <hr>
+    <form action="#" th:action="@{/traveller/filter-list}"
+          th:object="${travellerFilter}" method="POST">
+        <input type="date" name="input" date=new date(yyyy-mm-dd) th:field="*{start}" placeholder="Start Date YYYY-MM-DD" required
+               class=" form-controll mb-4 col-6"/>
+        <input type="date" name="input" date=new date(yyyy-mm-dd)  th:field="*{end}" placeholder="End Date YYYY-MM-DD" required
+               class=" form-controll mb-4 col-6"/>
+        <button type="submit" class="btn btn-info col-6 ">Getir</button>
+        <hr>
+    </form>
+
+
+</div>
+
+</body>
+
+
+</html>

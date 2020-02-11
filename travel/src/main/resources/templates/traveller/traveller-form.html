@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+<div class="container">
+    <h3>Traveller Director</h3>
+    <hr>
+    <p class="h4 mb-4x">Traveller </p>
+    <form action="#" th:action="@{/traveller/save}"
+          th:object="${traveller}" method="POST">
+        <input type="hidden" th:field="*{id}">
+        <input type="text" th:field="*{destination}"
+               class="form-controll mb-4 col-6" placeholder="Destination">
+        <input type="text" th:field="*{purpose}"
+               class="form-controll mb-4 col-6" placeholder="Purpose">
+        <input type="text" th:field="*{projectCode}"
+               class="form-controll mb-4 col-6" placeholder="Project Code">
+        <input type="text" th:field="*{cost}"
+               class="form-controll mb-4 col-6" placeholder="Cost">
+        <input type="date" name="input" date=new date(yyyy-mm-dd) th:field="*{startDate}"
+               placeholder="Start Date YYYY-MM-DD" required
+               class=" form-controll mb-4 col-6"/>
+        <input type="date" name="input" date=new date(yyyy-mm-dd) th:field="*{endDate}"
+               placeholder="End Date YYYY-MM-DD" required
+               class=" form-controll mb-4 col-6"/>
+        <input type="text" th:field="*{userName}"
+               class="form-controll mb-4 col-6" placeholder="User Name">
+             <button type="submit" class="btn btn-info col-6 ">Save</button>
+               <hr>
+    </form>
+
+
+    <a th:href="@{/traveller/list}"> Back to Traveller List</a>
+    <hr>
+
+</div>
+
+
+</body>
+
+
+</html>
